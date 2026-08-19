@@ -1,0 +1,27 @@
+# One thing to note is that I calculated my betas using linear regression, which might have been a short cut. book could have better information about more sophisticated ways of doing the betas.
+
+# momentum weighted expected return;
+
+	- Personally I find this a bit degen, but the momentum weighting is just the cum log return over some look back window minus the average of that same window over the stdev
+
+	- that stdev is currently calcd as such: 
+ 		
+	###
+	 # cumulative log return over the lookback window (≈ log of total return)
+    momentum_raw = momentum_window.sum(axis=0)
+
+    # standardize momentum cross-sectionally (z-score)
+    momentum_mean = momentum_raw.mean()
+    momentum_std = momentum_raw.std(ddof=0) 
+	### 					which is a little sus
+
+# gamma - recall that in the context, gamma is risk aversion which is basically arbitrary
+
+# quadratic programming portfolio optimization: 
+	
+	max mu T x  - 1/2 gamma x T V x  
+	this is the maximum returns subject to minimum risk at your level of risk tolerance
+	> hence "mean variance"
+
+-July 2026
+	
